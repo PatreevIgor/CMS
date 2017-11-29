@@ -1,10 +1,11 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_title, only: [:show, :edit, :update, :destroy]
   # GET /pages
   # GET /pages.json
   def index
     @pages = Page.all
+    @title = 'Title for all pages'
   end
 
   # GET /pages/1
@@ -65,6 +66,10 @@ class PagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.friendly.find(params[:id])
+    end
+
+    def set_title
+      @title = Page.friendly.find(params[:id]).title
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
