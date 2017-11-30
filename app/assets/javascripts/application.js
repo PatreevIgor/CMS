@@ -13,3 +13,24 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+window.onload = function(){ 
+
+var portfolioDiv = document.getElementById('portfolio');
+var resultsDiv = document.getElementById('results');
+
+var portfolioBtn = document.getElementById('RenderPortfolio_Btn');
+var resultsBtn = document.getElementById('RenderResults_Btn');
+
+portfolioBtn.onclick = function() {
+    resultsDiv.setAttribute('class', 'hidden');
+    portfolioDiv.setAttribute('class', 'visible');
+};
+
+resultsBtn.onclick = function() {
+    portfolioDiv.setAttribute('class', 'hidden');
+    resultsDiv.setAttribute('class', 'visible');
+};
+ 
+};
+
