@@ -2,12 +2,14 @@ class PagesController < ApplicationController
   before_action :set_page,        only: [:show, :edit, :update, :destroy]
   before_action :set_title,       only: [:show, :edit, :update, :destroy]
   before_action :set_description, only: [:show, :edit, :update, :destroy]
+  before_action :set_h1,          only: [:show, :edit, :update, :destroy]
   # GET /pages
   # GET /pages.json
   def index
     @pages       = Page.all
     @title       = 'Title for all pages'
     @description = 'Description for all pages'
+    @h1          = 'H1 for all pages'
   end
 
   # GET /pages/1
@@ -76,6 +78,10 @@ class PagesController < ApplicationController
 
     def set_description
       @description = Page.friendly.find(params[:id]).description
+    end
+
+    def set_h1
+      @h1 = Page.friendly.find(params[:id]).h1
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
