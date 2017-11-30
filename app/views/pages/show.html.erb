@@ -40,5 +40,8 @@
   <%= @page.priority %>
 </p>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<%= button_to 'Edit', edit_page_path(@page), :method => "get" %>
+<br>
+<%= button_to 'Destroy', @page, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<%= button_to 'Back', pages_path, :method => "get" %>
