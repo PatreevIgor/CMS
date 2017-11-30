@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :set_title,       only: [:show, :edit, :update, :destroy]
   before_action :set_description, only: [:show, :edit, :update, :destroy]
   before_action :set_h1,          only: [:show, :edit, :update, :destroy]
+
   # GET /pages
   # GET /pages.json
   def index
@@ -30,7 +31,7 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
-
+    @page.published_at = DateTime.now
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
