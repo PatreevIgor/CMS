@@ -1,41 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pages</h1>
+<h1>Menu label links</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Slug</th>
-      <th>Menu label</th>
-      <th>H1</th>
-      <th>Content</th>
-      <th>Published at</th>
-      <th>Priority</th>
-      <th colspan="3"></th>
+      <th>Menu label links:</th>
     </tr>
   </thead>
 
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= page.title %></td>
-        <td><%= page.description %></td>
-        <td><%= page.slug %></td>
-        <td><%= page.menu_label %></td>
-        <td><%= page.h1 %></td>
-        <td><%= page.content %></td>
-        <td><%= page.published_at %></td>
-        <td><%= page.priority %></td>
-        <td><%= link_to 'Show', page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
-        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to page.menu_label, page %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Page', new_page_path %>
