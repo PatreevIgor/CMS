@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages       = Page.all
+    @pages       = Page.all.order("priority")
     @title       = 'Title for all pages'
     @description = 'Description for all pages'
     @h1          = 'H1 for all pages'
