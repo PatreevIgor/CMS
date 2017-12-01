@@ -1,21 +1,22 @@
 class PagesController < ApplicationController
-  before_action :set_page,        only: [:show, :edit, :update, :destroy]
-  before_action :set_title,       only: [:show, :edit, :update, :destroy]
-  before_action :set_description, only: [:show, :edit, :update, :destroy]
-  before_action :set_h1,          only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  TITLE_PAGES = 'Title for all pages'.freeze
+  DESCR_PAGES = 'Description for all pages'.freeze
+  H1_PAGES    = 'H1 for all pages'.freeze
 
   # GET /pages
   # GET /pages.json
   def index
     @pages       = Page.all.order("priority")
-    @title       = 'Title for all pages'
-    @description = 'Description for all pages'
-    @h1          = 'H1 for all pages'
+    @title       = TITLE_PAGES
+    @description = DESCR_PAGES
+    @h1          = H1_PAGES
   end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
+    initialize_page_data
   end
 
   # GET /pages/new
@@ -25,6 +26,7 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
+    initialize_page_data
   end
 
   # POST /pages
@@ -32,6 +34,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     @page.published_at = DateTime.now
+
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
@@ -61,6 +64,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1.json
   def destroy
     @page.destroy
+
     respond_to do |format|
       format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
       format.json { head :no_content }
@@ -73,16 +77,10 @@ class PagesController < ApplicationController
       @page = Page.friendly.find(params[:id])
     end
 
-    def set_title
-      @title = Page.friendly.find(params[:id]).title
-    end
-
-    def set_description
-      @description = Page.friendly.find(params[:id]).description
-    end
-
-    def set_h1
-      @h1 = Page.friendly.find(params[:id]).h1
+    def initialize_page_data
+      @description = @page.description
+      @title       = @page.title
+      @h1          = @page.h1
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
