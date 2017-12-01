@@ -7,10 +7,11 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages       = Page.all.order("priority")
-    @title       = TITLE_PAGES
-    @description = DESCR_PAGES
-    @h1          = H1_PAGES
+    @published_pages   = Page.all.where("published_at >= ?", DateTime.now).order("priority")
+    @unpublished_pages = Page.all.where("published_at < ?", DateTime.now).order("priority")
+    @title             = TITLE_PAGES
+    @description       = DESCR_PAGES
+    @h1                = H1_PAGES
   end
 
   # GET /pages/1
@@ -33,7 +34,6 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
-    @page.published_at = DateTime.now
 
     respond_to do |format|
       if @page.save

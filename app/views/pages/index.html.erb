@@ -10,7 +10,35 @@
     </thead>
 
     <tbody>
-      <% @pages.each do |page| %>
+      <% @published_pages.each do |page| %>
+        <tr>
+          <td><%= link_to page.menu_label, page %></td>
+        </tr>
+      <% end %>
+
+      <% @unpublished_pages.each do |page| %>
+        <tr>
+          <td><%= link_to page.menu_label, page %></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+  <%= button_to 'New Page', new_page_path, :method => "get" %>
+  <br>
+  <button id="RenderResults_Btn">Hide unpublished Pages</button>
+</div>
+
+<div class="hidden" id="results">
+  <table>
+    <thead>
+      <tr>
+        <th>Menu label links:</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @published_pages.each do |page| %>
         <tr>
           <td><%= link_to page.menu_label, page %></td>
         </tr>
@@ -19,9 +47,5 @@
   </table>
   <%= button_to 'New Page', new_page_path, :method => "get" %>
   <br>
-  <button id="RenderResults_Btn">Hide Pages</button>
-</div>
-
-<div class="hidden" id="results">
-  <button id="RenderPortfolio_Btn">View Pages</button>
+  <button id="RenderPortfolio_Btn">View unpublished Pages</button>
 </div>
