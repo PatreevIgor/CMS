@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129144459) do
+ActiveRecord::Schema.define(version: 20171201100920) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20171129144459) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
-    t.text "description"
+    t.string "description"
     t.string "slug"
     t.string "menu_label"
     t.string "h1"
-    t.string "content"
+    t.text "content"
     t.datetime "published_at"
     t.integer "priority"
     t.datetime "created_at", null: false
