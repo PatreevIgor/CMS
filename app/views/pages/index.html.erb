@@ -10,18 +10,11 @@
     </thead>
 
     <tbody>
-      <% @published_pages.each do |page| %>
+      <% @pages.each do |page| %>
         <tr>
           <td><%= link_to page.menu_label, page %></td>
         </tr>
       <% end %>
-
-      <% @unpublished_pages.each do |page| %>
-        <tr>
-          <td><%= link_to page.menu_label, page %></td>
-        </tr>
-      <% end %>
-
     </tbody>
   </table>
   <%= button_to 'New Page', new_page_path, :method => "get" %>
