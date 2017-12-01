@@ -19,15 +19,15 @@ window.onload = function(){
   var all_pagesDiv = document.getElementById('all_pages');
   var only_publishedDiv = document.getElementById('only_published');
 
-  var portfolioBtn = document.getElementById('View_unpublished_Pages');
-  var resultsBtn = document.getElementById('Hid_unpublished_Pages');
+  var View_unpublished_PagesBtn = document.getElementById('View_unpublished_Pages');
+  var Hid_unpublished_PagesBtn = document.getElementById('Hid_unpublished_Pages');
 
-  portfolioBtn.onclick = function() {
+  View_unpublished_PagesBtn.onclick = function() {
       only_publishedDiv.setAttribute('class', 'hidden');
       all_pagesDiv.setAttribute('class', 'visible');
   };
 
-  resultsBtn.onclick = function() {
+  Hid_unpublished_PagesBtn.onclick = function() {
       all_pagesDiv.setAttribute('class', 'hidden');
       only_publishedDiv.setAttribute('class', 'visible');
   };
