@@ -16,20 +16,20 @@
 
 window.onload = function(){ 
 
-  var portfolioDiv = document.getElementById('portfolio');
-  var resultsDiv = document.getElementById('results');
+  var all_pagesDiv = document.getElementById('all_pages');
+  var only_publishedDiv = document.getElementById('only_published');
 
-  var portfolioBtn = document.getElementById('RenderPortfolio_Btn');
-  var resultsBtn = document.getElementById('RenderResults_Btn');
+  var portfolioBtn = document.getElementById('View_unpublished_Pages');
+  var resultsBtn = document.getElementById('Hid_unpublished_Pages');
 
   portfolioBtn.onclick = function() {
-      resultsDiv.setAttribute('class', 'hidden');
-      portfolioDiv.setAttribute('class', 'visible');
+      only_publishedDiv.setAttribute('class', 'hidden');
+      all_pagesDiv.setAttribute('class', 'visible');
   };
 
   resultsBtn.onclick = function() {
-      portfolioDiv.setAttribute('class', 'hidden');
-      resultsDiv.setAttribute('class', 'visible');
+      all_pagesDiv.setAttribute('class', 'hidden');
+      only_publishedDiv.setAttribute('class', 'visible');
   };
 
 };

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Menu label links</h2>
-<div class="visible" id="portfolio">
+<div class="visible" id="all_pages">
   <table>
     <thead>
       <tr>
@@ -26,10 +26,10 @@
   </table>
   <%= button_to 'New Page', new_page_path, :method => "get" %>
   <br>
-  <button id="RenderResults_Btn">Hide unpublished Pages</button>
+  <button id="Hid_unpublished_Pages">Hide unpublished Pages</button>
 </div>
 
-<div class="hidden" id="results">
+<div class="hidden" id="only_published">
   <table>
     <thead>
       <tr>
@@ -47,5 +47,5 @@
   </table>
   <%= button_to 'New Page', new_page_path, :method => "get" %>
   <br>
-  <button id="RenderPortfolio_Btn">View unpublished Pages</button>
+  <button id="View_unpublished_Pages">View unpublished Pages</button>
 </div>
