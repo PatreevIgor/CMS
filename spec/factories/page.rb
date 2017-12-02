@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :page do
     title 'MyString'
     description 'MyText'
@@ -6,7 +6,7 @@ FactoryGirl.define do
     menu_label 'MyString'
     h1 'MyString'
     content 'MyString'
-    published_at { rand(1..100).days.from_now }
+    published_at { Time.now - 1.day }
     priority 1
   end
 end
