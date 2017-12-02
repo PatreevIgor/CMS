@@ -27,4 +27,42 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to render_template :index
     end
   end
+
+  describe 'GET #show' do
+    let(:page) { FactoryBot.create(:page) }
+    before { get :show, params: { id: page.id } }
+
+    it 'assigns the requested Page to @page' do
+      expect(assigns(:page)).to eq page
+    end
+
+    it 'render show view' do
+       expect(response).to render_template :show
+    end
+  end
+
+  describe 'GET #new' do
+    before { get :new }
+
+    it 'assigns a new Page to @page' do
+      expect(assigns(:page)).to be_a_new(Page)
+    end
+
+    it 'render new view' do
+      expect(response).to render_template :new
+    end
+  end
+
+  describe 'GET #edit' do
+    let(:page) { FactoryBot.create(:page) }
+    before { get :edit, params: { id: page.id } }
+
+    it 'assigns the requested Page to @page' do
+      expect(assigns(:page)).to eq page
+    end
+
+    it 'render edit view' do
+      expect(response).to render_template :edit
+    end
+  end
 end
