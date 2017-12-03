@@ -30,6 +30,7 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe 'GET #show' do
+    sign_in_user
     before { get :show, params: { id: page.id } }
 
     it 'assigns the requested Page to @page' do
@@ -42,6 +43,7 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe 'GET #new' do
+    sign_in_user
     before { get :new }
 
     it 'assigns a new Page to @page' do
@@ -54,6 +56,7 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe 'GET #edit' do
+    sign_in_user
     before { get :edit, params: { id: page.id } }
 
     it 'assigns the requested Page to @page' do
@@ -66,6 +69,7 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe 'POST #create' do
+    sign_in_user
     context 'with valid attributes' do
       it 'saved the new page in the database' do
         expect { post :create, params: { page: FactoryBot.attributes_for(:page) } }.to change(Page, :count).by(1)
@@ -96,6 +100,7 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe 'PATCH #update' do
+    sign_in_user
     context 'valid attributes' do
       it 'assigns the requested page to @page' do
         patch :update, params: { id: page, page: FactoryBot.attributes_for(:page) }
@@ -135,6 +140,7 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    sign_in_user
     before { page }
 
     it 'deletes page' do

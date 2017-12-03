@@ -1,8 +1,8 @@
 require 'rails_helper'
+# save_and_open_page
 
 feature 'User sing in', %q{
-  In order to be able to ask questiion
-  As an User I want to be able to sing in
+  User want to be able to sing in
 } do
   
   scenario 'Registered user try to sing in' do
@@ -11,7 +11,6 @@ feature 'User sing in', %q{
     visit new_user_session_path
     fill_in 'Email', with: 'user@test.com'
     fill_in 'Password', with: '12345678'
-    # save_and_open_page
     click_on 'Log in'
 
     expect(page).to have_content 'Signed in successfully.'
