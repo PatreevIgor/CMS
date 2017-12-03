@@ -16,11 +16,11 @@ feature 'Create page', %q{
     visit pages_path
     click_on 'New Page'
     fill_in 'Title',       with: 'MyTitle'
-    fill_in 'Description', with: 'MyDescription'
+    fill_in 'Description', with: 'MyDescription' 
     fill_in 'Slug',        with: 'MySlug'
     fill_in 'Menu label',  with: 'MyMenu_label'
     fill_in 'H1',          with: 'MyH1'
-    fill_in 'Content',     with: 'MyContent'
+    # fill_in 'Content',   with: 'MyContent' #Comment this line, becouse used gem Trix
     fill_in 'Priority',    with: 1
     click_on 'Save'
 
