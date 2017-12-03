@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User sing in', %q{
   In order to be able to ask questiion
-  As an UserIwant to be able to sing in
+  As an User I want to be able to sing in
 } do
   
   scenario 'Registered user try to sing in' do

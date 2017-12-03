@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :new]
   TITLE_PAGES = 'Title for all pages'.freeze
   DESCR_PAGES = 'Description for all pages'.freeze
   H1_PAGES    = 'H1 for all pages'.freeze
