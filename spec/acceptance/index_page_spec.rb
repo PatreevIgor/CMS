@@ -7,10 +7,17 @@ feature 'Create page', %q{
 } do
 
   scenario 'Show published pages' do
-    visit pages_path
+    # visit pages_path
+
+    # expect(page).to have_selector(:link_or_button, 'Hide unpublished Pages')
+    # expect(page).to have_css('body#all_pages')
   end
 
   scenario 'Show unpublished pages' do
-    visit pages_path
+    # visit pages_path
+    # click_on 'Hide unpublished Pages'
+
+    # expect(page).to have_selector(:link_or_button, 'View unpublished Pages')
+    # expect(page).to have_css('body#only_published')
   end
 end
